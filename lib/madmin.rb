@@ -1,9 +1,12 @@
 require "madmin/engine"
 require "madmin/resourceable"
 require "madmin/resources"
+require "madmin/pages"
 
 module Madmin
   class NoResourcesError < StandardError; end
+  class NoPagesError < StandardError; end
+  class PageNotFoundError < StandardError; end
   class ResourceNotFoundError < StandardError; end
   class WrongArgumentError < StandardError; end
   class UndefinedScopeError < StandardError; end

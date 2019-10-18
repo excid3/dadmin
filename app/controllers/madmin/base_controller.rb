@@ -1,4 +1,5 @@
 require_dependency "madmin/resources"
+require_dependency "madmin/pages"
 
 module Madmin
   class BaseController < ActionController::Base
