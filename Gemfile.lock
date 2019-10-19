@@ -66,6 +66,7 @@ GEM
     ast (2.4.0)
     bindex (0.8.1)
     builder (3.2.3)
+    byebug (11.0.1)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
@@ -171,6 +172,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   madmin!
   pry-rails
   sqlite3 (~> 1.4)

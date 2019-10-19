@@ -5,7 +5,7 @@
     <% end %>
   </thead>
   <% if collection.any? %>
-    <% collection.last.each do |resource| %>
+    <% collection.each do |resource| %>
       <tr>
         <% madmin_resource.index_fields.each do |field| %>
           <td>
@@ -25,10 +25,6 @@
     </tr>
   <% end %>
 </table>
-
-<div class="mt-4">
-  <%= pagy_bootstrap_nav(collection.first).html_safe if collection.first.pages > 1 %>
-</div>
 
 <% if show_new_button %>
   <div class="mt-4">
