@@ -27,7 +27,7 @@
 </table>
 
 <div class="mt-4">
-  <%= pagy_nav(records.first).html_safe if records.first.pages > 1 %>
+  <%= pagy_bootstrap_nav(records.first).html_safe if records.first.pages > 1 %>
 </div>
 
 <% if show_new_button %>
