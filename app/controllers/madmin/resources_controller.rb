@@ -23,10 +23,8 @@ module Madmin
         @collection = resource.all
       end
 
-      @pagy, @collection = pagy(@collection)
-
       respond_to do |format|
-        format.html
+        format.html { @pagy, @collection = pagy(@collection, items: 1) }
         format.json { render json: @collection.map { |c| {id: c.id, display_value: c.title} } }
       end
     end
