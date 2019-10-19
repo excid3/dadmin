@@ -8,6 +8,6 @@
     <%= render 'scopes', scopes: @scopes %>
   <% end %>
   <%= content_tag :div, class: @scopes.any? ? 'col-9' : 'col-12' do %>
-    <%= render 'madmin/resources/index/content', headers: @headers, records: @records, show_new_button: true %>
+    <%= render 'madmin/resources/index/content', headers: @headers, collection: @collection, show_new_button: true %>
   <% end %>
 </div>
