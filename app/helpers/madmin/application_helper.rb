@@ -9,7 +9,8 @@ module Madmin
     end
 
     def pages
-      Madmin::Pages.all
+      []
+      # Madmin::Pages.all
     end
   end
 end
