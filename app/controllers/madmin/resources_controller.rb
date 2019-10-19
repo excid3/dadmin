@@ -23,7 +23,7 @@ module Madmin
         @collection = resource.all
       end
 
-      @records = pagy(@collection, items: 1)
+      @records = pagy(@collection)
 
       respond_to do |format|
         format.html
