@@ -1,6 +1,7 @@
 require "madmin/engine"
 require "madmin/resourceable"
 require "madmin/resources"
+require "pagy"
 
 module Madmin
   class NoResourcesError < StandardError; end

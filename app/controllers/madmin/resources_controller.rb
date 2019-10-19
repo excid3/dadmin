@@ -3,6 +3,7 @@ require_dependency "madmin/application_controller"
 module Madmin
   class ResourcesController < ApplicationController
     include ActiveSupport::Inflector
+    include Pagy::Backend
 
     before_action :find_resource, only: [:show, :edit, :update, :destroy]
 
@@ -21,6 +22,8 @@ module Madmin
       else
         @collection = resource.all
       end
+
+      @records = pagy(@collection, items: 1)
 
       respond_to do |format|
         format.html
