@@ -24,7 +24,11 @@ module Madmin
       def resources
         Rails.application.eager_load! unless Rails.application.config.cache_classes
 
-        ActiveRecord::Base.descendants.reject(&:abstract_class?)
+        if Object.const_defined?('ApplicationRecord')
+          return ApplicationRecord.descendants.reject(&:abstract_class?)
+        else
+          ActiveRecord::Base.descendants.reject(&:abstract_class?)
+        end
       end
     end
   end
