@@ -24,7 +24,19 @@ module Madmin
       def resources
         Rails.application.eager_load! unless Rails.application.config.cache_classes
 
+        valid_models
+      end
+
+      def valid_models
+        database_models - models_without_tables
+      end
+
+      def database_models
         ActiveRecord::Base.descendants.reject(&:abstract_class?)
+      end
+
+      def models_without_tables
+        database_models.reject(&:table_exists?)
       end
     end
   end
