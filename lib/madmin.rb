@@ -27,6 +27,6 @@ module Madmin
     autoload :Polymorphic,  "madmin/field/polymorphic"
     autoload :Select,       "madmin/field/select"
     autoload :TextArea,     "madmin/field/text_area"
-    autoload :Text,         "madmin/field/text"
+    autoload :String,       "madmin/field/string"
   end
 end

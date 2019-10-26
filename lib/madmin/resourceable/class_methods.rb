@@ -18,16 +18,13 @@ module Madmin
       # This becomes a DSL for adding a field into the fields class variable.
       # It is responsible for validating and parsing the arguments before
       # placing them into the fields class variable.
-      def field(*args)
-        validate_arguments!(args)
-
-        key        = args[0].to_sym
-        field_type = args[1]
+      def field(name, field_type, options = {})
+        # validate_arguments!(args)
 
         # We reassign the entire list of fields to prevent
         # duplication each time the class is evaluated.
         fresh_fields = fields
-        fresh_fields[key] = field_type.new(args[2].merge(key: key, model: model, resource: self))
+        fresh_fields[name.to_sym] = field_type.new(options.merge(key: name.to_sym, model: model, resource: self))
 
         class_variable_set(:@@fields, fresh_fields)
       end

@@ -5,7 +5,7 @@ module Madmin
 
       field :id, Madmin::Field::Number, index: true
       field :commentable, Madmin::Field::Polymorphic, index: true, form: true, display_value: :title
-      field :body, Madmin::Field::Text, index: true, form: true
+      field :body, Madmin::Field::String, index: true, form: true
     end
   end
 end

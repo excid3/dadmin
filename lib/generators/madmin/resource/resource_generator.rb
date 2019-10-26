@@ -8,12 +8,12 @@ module Madmin
         boolean: "Field::CheckBox",
         date: "Field::DateTime",
         datetime: "Field::DateTime",
-        enum: "Field::Text",
+        enum: "Field::String",
         float: "Field::Number",
         integer: "Field::Number",
         time: "Field::DateTime",
         text: "Field::TextArea",
-        string: "Field::Text",
+        string: "Field::String",
       }
 
       source_root File.expand_path("../templates", __FILE__)
@@ -69,7 +69,7 @@ module Madmin
       end
 
       def madmin_type_for_column(column_type)
-        ATTRIBUTE_TYPE_MAPPING[column_type]
+        ATTRIBUTE_TYPE_MAPPING[column_type || :string]
       end
     end
   end
