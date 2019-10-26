@@ -3,6 +3,7 @@ require_dependency "madmin/application_controller"
 module Madmin
   class ResourcesController < ApplicationController
     include ActiveSupport::Inflector
+    include Pagy::Backend
 
     before_action :find_resource, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +24,7 @@ module Madmin
       end
 
       respond_to do |format|
-        format.html
+        format.html { @pagy, @collection = pagy(@collection) }
         format.json { render json: @collection.map { |c| {id: c.id, display_value: c.title} } }
       end
     end

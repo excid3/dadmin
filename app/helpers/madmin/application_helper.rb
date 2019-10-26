@@ -1,5 +1,7 @@
 module Madmin
   module ApplicationHelper
+    include Pagy::Frontend
+
     def available_resources
       @available_resources ||= Madmin::Resources.gather.map { |model| madmin_resource_for(model: model) }
     end
