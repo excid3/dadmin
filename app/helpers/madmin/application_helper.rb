@@ -3,7 +3,7 @@ module Madmin
     include Pagy::Frontend
 
     def available_resources
-      @available_resources ||= Madmin::Resources.gather.map { |model| madmin_resource_for(model: model) }
+      @available_resources ||= Madmin::Resources.all
     end
 
     def madmin_resource_for(model:)

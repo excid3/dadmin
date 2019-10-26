@@ -36,7 +36,11 @@ module Madmin
       end
 
       def association_value_for(resource)
-        value_for(resource).send(association_display_value)
+        if association_display_value.respond_to?(:call)
+          association_display_value.call(resource)
+        else
+          value_for(resource).send(association_display_value)
+        end
       end
 
       def strong_params_keys
@@ -49,7 +53,7 @@ module Madmin
         association = model.reflect_on_all_associations.find { |assc| assc.name == key }
 
         @association_class         = association.klass
-        @association_display_value = option_or_default(:display_value, :name)
+        @association_display_value = option_or_default(:display_value, :id)
         @association_foreign_key   = association.foreign_key
         @association_scope         = :all
       end

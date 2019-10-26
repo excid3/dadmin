@@ -1,13 +1,7 @@
 module Madmin
   module Resources
-    # TODO: link to documentation in error message.
-    def self.gather
-      all
-    rescue NoMethodError
-      raise NoResourcesError,
-        "You must define an array of resources as `self.all` in lib/madmin/resources.rb"
-    rescue NameError => e
-      raise ResourceNotFoundError, "Madmin cannot locate the resource #{e.name}."
+    def self.all
+      Madmin::Resources.constants.select{|c| Madmin::Resources.const_get(c).is_a? Class}.map{ |model| Object.const_get("::Madmin::Resources::#{model}").new}
     end
   end
 end

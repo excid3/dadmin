@@ -8,7 +8,7 @@ module Madmin
 
       def initialize(args)
         super(args)
-        @polymorphic_display_value = option_or_default(:display_value, :name)
+        @polymorphic_display_value = option_or_default(:display_value, :id)
         @polymorphic_scope = :all
       end
 
