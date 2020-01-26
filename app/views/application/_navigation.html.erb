@@ -3,6 +3,7 @@
 
   <ul class="list-unstyled mt-3">
     <% available_resources.each do |resource| %>
+      <% resource = resource.new %>
       <% next unless resource.show_in_menu? %>
       <li class="mb-1">
         <%= link_to resource.friendly_name.pluralize, resources_path(resource.slug), class: "text-white" %>

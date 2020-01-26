@@ -1,6 +1,7 @@
 <h1>Administration</h1>
-<% available_resources.each do |type| %>
+<% available_resources.each do |resource| %>
+  <% resource = resource.new %>
   <li>
-    <%= link_to type.friendly_name.pluralize, resources_path(type.slug) %>
+    <%= link_to resource.friendly_name.pluralize, resources_path(resource.slug) %>
   </li>
 <% end %>
